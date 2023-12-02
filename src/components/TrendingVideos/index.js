@@ -110,7 +110,7 @@ class TrendingVideos extends Component {
     return (
       <ThemeAndVideoContext.Consumer>
         {value => {
-          const {isDarkTheme} = value
+          const {isDarkTheme, toggleTheme} = value
 
           const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const textColor = isDarkTheme ? '#f9f9f9' : '#231f20'
@@ -119,7 +119,11 @@ class TrendingVideos extends Component {
             <div data-testid="trending">
               <Header />
               <NavigationBar />
-              <TrendingContainer data-testid="trending" bgColor={bgColor}>
+              <TrendingContainer
+                data-testid="trending"
+                bgColor={bgColor}
+                onClick={toggleTheme}
+              >
                 <TrendingVideoTitle>
                   <TitleIconContainer>
                     <HiFire size={35} color="#ff0000" />
